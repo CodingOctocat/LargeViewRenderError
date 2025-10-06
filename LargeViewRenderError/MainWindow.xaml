@@ -28,10 +28,11 @@
                     MouseUp="Canvas_MouseUp"
                     SnapsToDevicePixels="True"
                     UseLayoutRounding="False">
+                <!--  如果 CornerRadius <= 16，右端仍然是直角，>16 能显示圆角但不正确 -->
                 <Border Width="500000500"
                         Height="70"
                         Background="CadetBlue"
-                        CornerRadius="25"
+                        CornerRadius="17"
                         SnapsToDevicePixels="True"
                         UseLayoutRounding="False" />
             </Canvas>
