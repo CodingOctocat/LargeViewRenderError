@@ -9,14 +9,14 @@
         Height="450"
         Loaded="Window_Loaded"
         SnapsToDevicePixels="True"
-        UseLayoutRounding="True"
+        UseLayoutRounding="False"
         mc:Ignorable="d">
     <!--  所有元素的 SnapsToDevicePixels 和 UseLayoutRounding 都进行过排列组合测试。  -->
     <Grid>
         <ScrollViewer x:Name="sv"
                       HorizontalScrollBarVisibility="Visible"
                       SnapsToDevicePixels="True"
-                      UseLayoutRounding="True"
+                      UseLayoutRounding="False"
                       VerticalScrollBarVisibility="Visible">
             <Canvas x:Name="canvas"
                     Width="1000000000"
@@ -26,24 +26,34 @@
                     MouseMove="Canvas_MouseMove"
                     MouseUp="Canvas_MouseUp"
                     SnapsToDevicePixels="True"
-                    UseLayoutRounding="True" />
+                    UseLayoutRounding="False" />
         </ScrollViewer>
 
-        <StackPanel Margin="8"
-                    IsHitTestVisible="False">
-            <TextBlock FontSize="24"
-                       Text="{Binding ElementName=sv, Path=HorizontalOffset, StringFormat='{}H: {0}'}" />
-            <TextBlock FontSize="24"
-                       Text="{Binding ElementName=sv, Path=VerticalOffset, StringFormat='{}V: {0}'}" />
+        <StackPanel Margin="8">
+            <StackPanel IsHitTestVisible="False">
+                <TextBlock FontSize="24"
+                           Text="{Binding ElementName=sv, Path=HorizontalOffset, StringFormat='{}H: {0}'}" />
+                <TextBlock FontSize="24"
+                           Text="{Binding ElementName=sv, Path=VerticalOffset, StringFormat='{}V: {0}'}" />
 
-            <TextBlock x:Name="txtX"
-                       FontSize="24"
-                       Foreground="Blue"
-                       Text="X: 0" />
-            <TextBlock x:Name="txtY"
-                       FontSize="24"
-                       Foreground="Blue"
-                       Text="Y: 0" />
+                <TextBlock x:Name="txtX"
+                           FontSize="24"
+                           Foreground="Blue"
+                           Text="X: 0" />
+                <TextBlock x:Name="txtY"
+                           FontSize="24"
+                           Foreground="Blue"
+                           Text="Y: 0" />
+            </StackPanel>
+
+            <TextBox Width="100" x:Name="tbH"
+                     HorizontalAlignment="Left"
+                     FontSize="22"
+                     Text="Power" />
+
+            <Button HorizontalAlignment="Left"
+                    Click="Button_Click"
+                    Content="Scroll to H offset(2^xx)" />
         </StackPanel>
     </Grid>
 </Window>

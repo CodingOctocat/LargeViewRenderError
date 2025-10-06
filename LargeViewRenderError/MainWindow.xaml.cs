@@ -23,6 +23,13 @@ public partial class MainWindow : Window
         InitializeComponent();
     }
 
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+        Double.TryParse(tbH.Text, out double power);
+
+        sv.ScrollToHorizontalOffset(Math.Pow(2, power));
+    }
+
     // 鼠标按下事件，开始选区
     private void Canvas_MouseDown(object sender, MouseButtonEventArgs e)
     {

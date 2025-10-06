@@ -29,7 +29,7 @@ public class SelectionBoxAdorner : Adorner
         IsHitTestVisible = false;
 
         // 测试
-        UseLayoutRounding = true;
+        UseLayoutRounding = false;
         SnapsToDevicePixels = true;
     }
 
