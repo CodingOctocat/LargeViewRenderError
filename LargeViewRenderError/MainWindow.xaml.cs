@@ -27,7 +27,14 @@ public partial class MainWindow : Window
     {
         Double.TryParse(tbH.Text, out double power);
 
-        sv.ScrollToHorizontalOffset(Math.Pow(2, power));
+        if (power > 100)
+        {
+            sv.ScrollToHorizontalOffset(power);
+        }
+        else
+        {
+            sv.ScrollToHorizontalOffset(Math.Pow(2, power));
+        }
     }
 
     // 鼠标按下事件，开始选区

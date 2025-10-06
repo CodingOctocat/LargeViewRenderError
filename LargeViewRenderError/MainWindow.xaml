@@ -9,6 +9,7 @@
         Height="450"
         Loaded="Window_Loaded"
         SnapsToDevicePixels="True"
+        Topmost="True"
         UseLayoutRounding="False"
         mc:Ignorable="d">
     <!--  所有元素的 SnapsToDevicePixels 和 UseLayoutRounding 都进行过排列组合测试。  -->
@@ -26,7 +27,14 @@
                     MouseMove="Canvas_MouseMove"
                     MouseUp="Canvas_MouseUp"
                     SnapsToDevicePixels="True"
-                    UseLayoutRounding="False" />
+                    UseLayoutRounding="False">
+                <Border Width="500000500"
+                        Height="70"
+                        Background="CadetBlue"
+                        CornerRadius="25"
+                        SnapsToDevicePixels="True"
+                        UseLayoutRounding="False" />
+            </Canvas>
         </ScrollViewer>
 
         <StackPanel Margin="8">
@@ -46,14 +54,18 @@
                            Text="Y: 0" />
             </StackPanel>
 
-            <TextBox Width="100" x:Name="tbH"
+            <TextBlock FontSize="22"
+                       Foreground="Purple"
+                       Text="p: " />
+            <TextBox x:Name="tbH"
+                     Width="200"
                      HorizontalAlignment="Left"
                      FontSize="22"
-                     Text="Power" />
+                     Text="500000000" />
 
             <Button HorizontalAlignment="Left"
                     Click="Button_Click"
-                    Content="Scroll to H offset(2^xx)" />
+                    Content="Scroll to H offset(2^p)&#x0a;Scroll to H offset(p) if p &gt; 100" />
         </StackPanel>
     </Grid>
 </Window>
