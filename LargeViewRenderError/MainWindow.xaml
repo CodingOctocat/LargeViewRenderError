@@ -1,0 +1,49 @@
+﻿<Window x:Class="LargeViewRenderError.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:LargeViewRenderError"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow"
+        Width="800"
+        Height="450"
+        Loaded="Window_Loaded"
+        SnapsToDevicePixels="True"
+        UseLayoutRounding="True"
+        mc:Ignorable="d">
+    <!--  所有元素的 SnapsToDevicePixels 和 UseLayoutRounding 都进行过排列组合测试。  -->
+    <Grid>
+        <ScrollViewer x:Name="sv"
+                      HorizontalScrollBarVisibility="Visible"
+                      SnapsToDevicePixels="True"
+                      UseLayoutRounding="True"
+                      VerticalScrollBarVisibility="Visible">
+            <Canvas x:Name="canvas"
+                    Width="1000000000"
+                    Height="800"
+                    Background="Wheat"
+                    MouseDown="Canvas_MouseDown"
+                    MouseMove="Canvas_MouseMove"
+                    MouseUp="Canvas_MouseUp"
+                    SnapsToDevicePixels="True"
+                    UseLayoutRounding="True" />
+        </ScrollViewer>
+
+        <StackPanel Margin="8"
+                    IsHitTestVisible="False">
+            <TextBlock FontSize="24"
+                       Text="{Binding ElementName=sv, Path=HorizontalOffset, StringFormat='{}H: {0}'}" />
+            <TextBlock FontSize="24"
+                       Text="{Binding ElementName=sv, Path=VerticalOffset, StringFormat='{}V: {0}'}" />
+
+            <TextBlock x:Name="txtX"
+                       FontSize="24"
+                       Foreground="Blue"
+                       Text="X: 0" />
+            <TextBlock x:Name="txtY"
+                       FontSize="24"
+                       Foreground="Blue"
+                       Text="Y: 0" />
+        </StackPanel>
+    </Grid>
+</Window>
