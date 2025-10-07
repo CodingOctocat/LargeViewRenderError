@@ -10,14 +10,14 @@
         Loaded="Window_Loaded"
         SnapsToDevicePixels="True"
         Topmost="True"
-        UseLayoutRounding="False"
+        UseLayoutRounding="True"
         mc:Ignorable="d">
     <!--  所有元素的 SnapsToDevicePixels 和 UseLayoutRounding 都进行过排列组合测试。  -->
     <Grid>
         <ScrollViewer x:Name="sv"
                       HorizontalScrollBarVisibility="Visible"
                       SnapsToDevicePixels="True"
-                      UseLayoutRounding="False"
+                      UseLayoutRounding="True"
                       VerticalScrollBarVisibility="Visible">
             <Canvas x:Name="canvas"
                     Width="1000000000"
@@ -27,12 +27,41 @@
                     MouseMove="Canvas_MouseMove"
                     MouseUp="Canvas_MouseUp"
                     SnapsToDevicePixels="True"
-                    UseLayoutRounding="False">
+                    UseLayoutRounding="True">
+
+                <Rectangle Width="500000020"
+                           Height="70"
+                           Fill="DarkSeaGreen"
+                           IsHitTestVisible="False"
+                           RadiusX="8"
+                           RadiusY="8"
+                           SnapsToDevicePixels="True"
+                           UseLayoutRounding="True" />
+
+                <!--  https://stackoverflow.com/questions/13731593/horizontal-or-vertical-wpf-lines-limited-to-125-000-pixels  -->
+                <Line IsHitTestVisible="False"
+                      Stroke="Green"
+                      StrokeThickness="1"
+                      X1="0"
+                      X2="125000.00"
+                      Y1="10"
+                      Y2="10" />
+
+                <Line IsHitTestVisible="False"
+                      Stroke="Red"
+                      StrokeThickness="1"
+                      X1="0"
+                      X2="125000.01"
+                      Y1="20"
+                      Y2="20" />
+
                 <!--  如果 CornerRadius <= 16，右端仍然是直角，>16 能显示圆角但不正确 -->
-                <Border Width="500000500"
+                <Border Canvas.Left="500000500"
+                        Width="10000"
                         Height="70"
                         Background="CadetBlue"
                         CornerRadius="17"
+                        IsHitTestVisible="False"
                         SnapsToDevicePixels="True"
                         UseLayoutRounding="False" />
             </Canvas>

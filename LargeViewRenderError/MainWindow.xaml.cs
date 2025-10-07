@@ -2,6 +2,8 @@
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
+using System.Windows.Media;
 
 namespace LargeViewRenderError;
 
@@ -81,6 +83,12 @@ public partial class MainWindow : Window
 
     private void Window_Loaded(object sender, RoutedEventArgs e)
     {
+        var hwndSource = PresentationSource.FromVisual(this) as HwndSource;
+        var hwndTarget = hwndSource.CompositionTarget;
+        hwndTarget.RenderMode = RenderMode.SoftwareOnly;
+
+        RenderOptions.ProcessRenderMode = System.Windows.Interop.RenderMode.SoftwareOnly;
+
         _adornerLayer = AdornerLayer.GetAdornerLayer(canvas); // 获取 AdornerLayer
     }
 }
